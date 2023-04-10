@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Db {
 	private static final String _JDBC = "com.mysql.jdbc.Driver";
-	private static final String _URL = "jdbc:mysql://localhost:3306/login_fb_v1";
+	private static final String _URL = "jdbc:mysql://localhost:3306/login_java";
 	private static final String _USER = "root";
 	private static final String _PASSWORD = "";
 

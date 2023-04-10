@@ -27,9 +27,9 @@ out.print(mensaje);
                     <img src="img/github.png" alt="" class="form_icons">               
                 </div>
                 <span class="form_span">or use email for registration</span>
-                <input type="text" placeholder="Name"  class="form_input" id="name">
-                <input type="text" placeholder="Email"  class="form_input" id="email"> 
-                <input type="password" placeholder="Password"  class="form_input" id="pass">
+                <input type="text" placeholder="Name" name="name" class="form_input" id="name">
+                <input type="text" placeholder="Email" name="email" class="form_input" id="email"> 
+                <input type="password" placeholder="Password" name="pass" class="form_input" id="pass">
                 <button class="form-submit button" type="submit" name="signup" data-toggle="modal" data-target="#registroExitoso" value="Register">SIGN UP</button>
             </form>
         </div>
@@ -43,8 +43,8 @@ out.print(mensaje);
                     <img src="img/github.png" alt="" class="form_icons">  
                 </div>
                 <span class="form_span">or use your email account</span>
-                <input type="text" placeholder="Email"  class="form_input" id="email">
-                <input type="password" placeholder="Password"  class="form_input" id="pass">
+                <input type="text" placeholder="Email" name="email" class="form_input" id="email">
+                <input type="password" placeholder="Password" name="pass" class="form_input" id="pass">
                 <a href="" class="form__link">Forgot your password?</a>
                 <button type="submit" name="signin" id="signin" class="form-submit button" value="Log in">SIGN IN</button>
 

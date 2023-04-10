@@ -62,7 +62,7 @@ public class LoginDAO {
 
 	        cn = Db.getConexion();
 
-	        String sql = "UPDATE Usuario SET password = ? WHERE email = ?";
+	        String sql = "UPDATE User SET user_pass = ? WHERE user_mail = ?";
 	        ps = cn.prepareStatement(sql);
 	        ps.setString(1, newPass);
 	        ps.setString(2, email);

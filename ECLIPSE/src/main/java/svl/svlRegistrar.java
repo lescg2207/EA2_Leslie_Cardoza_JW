@@ -23,27 +23,27 @@ public class svlRegistrar extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
     	response.setCharacterEncoding("UTF-8");
+
     	
-    	int est=1;
     	String name = request.getParameter("name");
 	    String email = request.getParameter("email");
 	    String pass = request.getParameter("pass");
-	  
 	    
-	    if (name == null || name.isEmpty() ||  
+	    if (name == null || name.isEmpty() || 
 		    	email == null || email.isEmpty() || 
-		    	pass == null || pass.isEmpty()) {    	
+		    	pass == null || pass.isEmpty()) {
+		    	
 		        request.setAttribute("mensaje", "Todos los campos son obligatorios");
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		        dispatcher.forward(request, response);
 		        return;
 		    }
-
-		    user user = new user(name, email, pass,est);
+	  
+	    
+		    user user = new user(name, email, pass);
 		    user.setName(name);
 		    user.setEmail(email);
 		    user.setPass(pass);
-		    user.setEstado(est);
 
 		    try {
 		        RegistrarDAO.registerUser(user);

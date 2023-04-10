@@ -30,14 +30,8 @@ public class svlLogin extends HttpServlet {
 		String email = request.getParameter("email");
 		String pass = request.getParameter("pass");
 		
-		if (email == null || email.isEmpty() || 
-		    	pass == null || pass.isEmpty()) {    	
-		        request.setAttribute("mensaje", "Todos los campos son obligatorios");
-		        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-		        dispatcher.forward(request, response);
-		        return;
-		    }
-
+		
+	
 		LoginDAO log = new LoginDAO();
 		user user = log.logueo(email, pass);
 

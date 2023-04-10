@@ -10,16 +10,14 @@ import db.Db;
 public class RegistrarDAO {
 	
 	public static void registerUser(user user) throws SQLException {
-	    String sql = "INSERT INTO tb_user" +
-	        "  (user_nom,  user_mail, user_pass, user_estado) VALUES " +
-	        " (?, ?, ?, ?);";
+	    String sql = "INSERT INTO tb_user (user_nom,user_mail,user_pass) VALUES (?,?,?);";
 
 	    try (Connection connection = Db.getConexion();
 	        PreparedStatement ps = connection.prepareStatement(sql)) {
 	    	ps.setString(1, user.getName());
 	    	ps.setString(2, user.getEmail());
 	    	ps.setString(3, user.getPass());
-	    	ps.setInt(4, user.getEstado());
+	    
 
 	        System.out.println(ps);
 	        int result = ps.executeUpdate();
