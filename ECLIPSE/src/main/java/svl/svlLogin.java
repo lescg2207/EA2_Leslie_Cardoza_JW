@@ -1,5 +1,6 @@
 package svl;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,17 +25,25 @@ public class svlLogin extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
     	response.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		    
+		 
 		    
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+		String pass = request.getParameter("pass");
+		
+		if (email == null || email.isEmpty() || 
+		    	pass == null || pass.isEmpty()) {    	
+		        request.setAttribute("mensaje", "Todos los campos son obligatorios");
+		        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		        dispatcher.forward(request, response);
+		        return;
+		    }
 
 		LoginDAO log = new LoginDAO();
-		user user = log.logueo(email, password);
+		user user = log.logueo(email, pass);
 
 		if (user == null) {
 			request.setAttribute("mensaje", "Error nombre de usuario y/o clave. Vuelva a intentarlo");
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("welcome.jsp");
 		} else {
 			response.sendRedirect("welcome.jsp");
 			session.setAttribute("email", email);

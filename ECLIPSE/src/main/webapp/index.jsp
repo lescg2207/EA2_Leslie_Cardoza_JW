@@ -19,7 +19,7 @@ out.print(mensaje);
 %>
     <div class="main">
         <div class="container a-container" id="a-container">
-            <form id="a-form" class="form" method="post" action="svlRegistrar">
+            <form id="a-form" class="form"  action="svlRegistrar" method="post">
                 <h2 class="form_title title">Create Account</h2>
                 <div class="form_icons">
                     <img src="img/google.png" alt="" class="form_icons">
@@ -30,11 +30,11 @@ out.print(mensaje);
                 <input type="text" placeholder="Name"  class="form_input" id="name">
                 <input type="text" placeholder="Email"  class="form_input" id="email"> 
                 <input type="password" placeholder="Password"  class="form_input" id="pass">
-                <button class="fomr_button button submit" value="Register" type="button">SIGN UP</button>
+                <button class="form-submit button" type="submit" name="signup" data-toggle="modal" data-target="#registroExitoso" value="Register">SIGN UP</button>
             </form>
         </div>
         <div class="container b-container" id="b-container">
-            <form id="b-form" class="form" method="post" action="svlLogin">
+            <form id="b-form" class="form" action="svlLogin" method="post" >
 
                 <h2 class="form_title title">Sign in to Website</h2>
                 <div class="form_icons">
@@ -46,7 +46,7 @@ out.print(mensaje);
                 <input type="text" placeholder="Email"  class="form_input" id="email">
                 <input type="password" placeholder="Password"  class="form_input" id="pass">
                 <a href="" class="form__link">Forgot your password?</a>
-                <button class="fomr_button button submit" type="submit">SIGN IN</button>
+                <button type="submit" name="signin" id="signin" class="form-submit button" value="Log in">SIGN IN</button>
 
             </form>
         </div>
@@ -71,4 +71,5 @@ out.print(mensaje);
     
 </body>
 <script src="js/main.js"></script>
+ <script src="vendor/jquery/jquery.min.js"></script>
 </html>
