@@ -34,4 +34,14 @@
     <servlet-name>svlLogin</servlet-name>
     <url-pattern>/svlLogin</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>svlUpass</display-name>
+    <servlet-name>svlUpass</servlet-name>
+    <servlet-class>svl.svlUpass</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>svlUpass</servlet-name>
+    <url-pattern>/svlUpass</url-pattern>
+  </servlet-mapping>
 </web-app>

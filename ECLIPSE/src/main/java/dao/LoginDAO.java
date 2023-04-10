@@ -18,7 +18,7 @@ public class LoginDAO {
 		try {
 			cn = Db.getConexion();
 			
-			String sql = "SELECT user_mail, user_pass FROM tb_user WHERE user_mail = ? AND user_pass = ?";
+			String sql = "SELECT * FROM tb_user WHERE user_mail = ? AND user_pass = ?";
 			ps = cn.prepareStatement(sql);
 			ps.setString(1, email);
 			ps.setString(2, pass);
@@ -26,8 +26,10 @@ public class LoginDAO {
 			
 			while (rs.next()) {
 				usuario = new user();
-				usuario.setEmail(rs.getString("email"));
-				usuario.setPass(rs.getString("pass"));
+				usuario.setEmail(rs.getString("user_mail"));
+				usuario.setPass(rs.getString("user_pass"));
+				
+				
 			}
 			
 		} catch (Exception e) {
@@ -62,7 +64,7 @@ public class LoginDAO {
 
 	        cn = Db.getConexion();
 
-	        String sql = "UPDATE User SET user_pass = ? WHERE user_mail = ?";
+	        String sql = "UPDATE tb_user SET user_pass = ? WHERE user_mail = ?";
 	        ps = cn.prepareStatement(sql);
 	        ps.setString(1, newPass);
 	        ps.setString(2, email);
@@ -90,4 +92,7 @@ public class LoginDAO {
 
 	    return resultado;
 	}
+
+
+
 }

@@ -34,8 +34,7 @@ public class svlRegistrar extends HttpServlet {
 		    	pass == null || pass.isEmpty()) {
 		    	
 		        request.setAttribute("mensaje", "Todos los campos son obligatorios");
-		        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-		        dispatcher.forward(request, response);
+		        
 		        return;
 		    }
 	  
@@ -48,8 +47,10 @@ public class svlRegistrar extends HttpServlet {
 		    try {
 		        RegistrarDAO.registerUser(user);
 		        request.setAttribute("mensaje", "Usuario registrado");
+		        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		        dispatcher.forward(request, response);
 		        request.setAttribute("registroExitoso", true);
-		        response.sendRedirect("index.jsp");
+		        response.sendRedirect("login.jsp");
 		    } catch (SQLException e) {
 		        request.setAttribute("mensaje", "ERROR!!!");
 		        e.printStackTrace();
@@ -59,13 +60,11 @@ public class svlRegistrar extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		processRequest(request, response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		processRequest(request, response);
 	}
 

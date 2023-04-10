@@ -14,9 +14,6 @@ import dao.LoginDAO;
 public class svlLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public svlLogin() {
         super();
     }
@@ -37,10 +34,14 @@ public class svlLogin extends HttpServlet {
 
 		if (user == null) {
 			request.setAttribute("mensaje", "Error nombre de usuario y/o clave. Vuelva a intentarlo");
-			response.sendRedirect("welcome.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+	        dispatcher.forward(request, response);
+
+	        return;
+			
 		} else {
 			response.sendRedirect("welcome.jsp");
-			session.setAttribute("email", email);
+			session.setAttribute("email", email);		
 		}
 	}
     
